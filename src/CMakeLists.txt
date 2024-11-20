@@ -1,19 +1,23 @@
 cmake_minimum_required(VERSION 3.10)
 
 set(SOURCES
-  main.cpp
+  # logger.cpp
+  mesh.cpp
+  # geometry.cpp
+  # quad.cpp
 )
 
 set(LIBRARIES
   Eigen3::Eigen
   LF::lf.assemble
-  # LF::lf.base
-  # LF::lf.geometry
-  # LF::lf.io
-  # LF::lf.mesh.hybrid2d
-  # LF::lf.mesh.utils
-  # LF::lf.mesh.test_utils
-  # LF::lf.uscalfe
+  LF::lf.base
+  LF::lf.geometry
+  LF::lf.io
+  LF::lf.mesh.hybrid2d
+  LF::lf.mesh.utils
+  LF::lf.mesh.test_utils
+  LF::lf.uscalfe
+  LF::lf.refinement
 )
 
 set(TARGET
@@ -24,6 +28,7 @@ set(OUTPUT_NAME
   ${PROJECT_NAME}
 )
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Build main application
 add_executable(${TARGET} ${SOURCES})
